@@ -44,6 +44,5 @@ description: |
 
   When using these images, please give credit to AT&T Laboratories Cambridge.
 
-download:
-  handler: /archive:Zip
+download: !@archive:Zip
   url: http://www.cl.cam.ac.uk/Research/DTG/attarchive/pub/data/att_faces.zip
