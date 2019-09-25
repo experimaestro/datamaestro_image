@@ -15,5 +15,6 @@ download: !@/multiple:List
   attributes: !@/single:File
     description: "[List of attributes](http://image-net.org/download-attributes)"
     url: http://image-net.org/downloads/attributes/attrann.mat
-  images: !@/link:Ask
-    description: Download images from the [image net website]*(http://image-net.org/download-imageurls)
+  # images: !@/manual:Link
+  #   name: folder
+  #   description: Download images from the [image net website]*(http://image-net.org/download-imageurls)

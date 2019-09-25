@@ -9,15 +9,13 @@ url: http://yann.lecun.com/exdb/mnist/
 download: !@/multiple:List
   train/images: !@/single:File
     url: http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+    type: "/tensor:IDX"
   train/labels: !@/single:File
     url: http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+    type: "/tensor:IDX"
   test/images: !@/single:File
     url: http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+    type: "/tensor:IDX"
   test/labels: !@/single:File
     url: http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-
-formats:
-  train/images: /tensor:IDX
-  train/labels: /tensor:IDX
-  test/images: /tensor:IDX
-  test/labels: /tensor:IDX
+    type: "/tensor:IDX"
