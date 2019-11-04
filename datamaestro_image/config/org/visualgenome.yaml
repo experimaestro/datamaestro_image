@@ -23,7 +23,7 @@ download: !@multiple:List
 ...
 ---
 id: annotations
-download: !@multiple:List
+download: !@/multiple:List
   list:
     objects: !@/single:File
       url: https://visualgenome.org/static/data/dataset/objects.json.zip
