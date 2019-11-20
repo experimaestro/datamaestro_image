@@ -1,0 +1,54 @@
+# See documentation on http://experimaestro.github.io/datamaestro/
+
+# Configuration
+# See http://experimaestro.github.io/datamaestro/configuration/
+
+name: Clickture
+web: https://www.microsoft.com/en-us/research/project/clickture/
+
+# Tags and tasks should be chosen by considering the datamaestro
+# repository practice
+tags: [ "image", "user click", "query" ]
+tasks: [ "image search" ]
+
+
+description: |
+  We argue that the massive amount of click data from commercial search engines
+  provides a data set that is unique in the bridging of the semantic and intent
+  gap. Search engines generate millions of click data (a.k.a. image-query
+  pairs), which provide almost “unlimited” yet strong connections between
+  semantics and images, as well as connections between users’ intents and
+  queries. This site is to introduce such as dataset, Clickture.
+
+  The dataset, named Clickture, was sampled from one-year click log of a
+  commercial image search engine. It consists of a big table with 212:3 million
+  triads: Clickture = {}. A triad means that the image K was clicked C times in
+  the search results of query Q in one year (maybe by different users at different
+  times). Image K is represented by a unique “key” which is hash code generated
+  from the image URL, together with the original URL. Query Q is a textual word or
+  phrase, and click count C is an integer which is no less than one. One image may
+  correspond with to one or more entries in the table. One query may also appear
+  in multiple entries triads that are associated with different images. There are
+  40 million unique (in terms of URLs) image keys, that is, images in the dataset,
+  and 73.6 million unique queries (based on textual string comparison in lower
+  case) in the Clickture.
+
+  Through users’ click action during image search, the query Q in the triad is
+  linked to the image K. In general, the bigger the click count C is, the higher
+  probability that the corresponding query is relevant to the image. For
+  convenience, we call Q a “clicked query” of Image K, and K a “clicked image” of
+  query Q, and call 〈K,Q〉 a “clicked image-query pair”, and the triad 〈K,Q,C〉 as
+  “click data”. We also call “clicked queries” of an image as “labels” of the
+  image.
+
+  To enable the use of Clickture by a wide range of research organizations and
+  individuals with different computing, networking, storage and programing
+  capacities, a subset of Clickture images (1 million images and 11.7 million
+  queries), is provided. We call this set Clickture-Lite and the full 40M dataset
+  Clickture-Full (or in brief Clickture). The 1M images in Clickture-Lite are
+  randomly sampled from the 40M image dataset (based on click frequency).
+
+# Describe how to download
+# See http://experimaestro.github.io/datamaestro/download/
+
+download: !@/todo {}
