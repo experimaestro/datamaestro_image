@@ -36,5 +36,7 @@ setup(
             'image = datamaestro_image:Repository'
         ]
 
-    }
+    },
+
+    test_suite = 'datamaestro_image.test'
 )
