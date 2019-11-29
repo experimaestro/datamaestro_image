@@ -15,9 +15,6 @@ setup(
     license='MIT',
     python_requires='>=3.5',
     packages=find_namespace_packages(include="datamaestro_image.*"),
-    package_data={
-        '': [ '*.yaml' ]
-    },
     install_requires=[
         'datamaestro'
     ],
