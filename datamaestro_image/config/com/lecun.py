@@ -11,6 +11,7 @@ from datamaestro.definitions import Data, Argument, Type, DataTasks, DataTags, D
 @FileDownloader("test_images", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
 @FileDownloader("test_labels", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
 @Dataset(
+  Generic,
   url="http://yann.lecun.com/exdb/mnist/",
 )
 def MNIST(train_images, train_labels, test_images, test_labels):
