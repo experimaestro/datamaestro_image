@@ -1,17 +1,16 @@
-from datamaestro_image.data import ImageClassification
+from datamaestro_image.data import ImageClassification, Generic
 from datamaestro.data import Data
 from datamaestro.data.tensor import IDX
 
-from datamaestro.download.single import DownloadFile
+from datamaestro.download.single import FileDownloader
 from datamaestro.definitions import Data, Argument, Type, DataTasks, DataTags, Dataset
 
 
-@DownloadFile("train_images", "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz")
-@DownloadFile("train_labels", "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz")
-@DownloadFile("test_images", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
-@DownloadFile("test_labels", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
+@FileDownloader("train_images", "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz")
+@FileDownloader("train_labels", "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz")
+@FileDownloader("test_images", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
+@FileDownloader("test_labels", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
 @Dataset(
-  ImageClassification,
   url="http://yann.lecun.com/exdb/mnist/",
 )
 def MNIST(train_images, train_labels, test_images, test_labels):
@@ -24,11 +23,11 @@ def MNIST(train_images, train_labels, test_images, test_labels):
   """
   return {
     "train": ImageClassification(
-      images=IDX(path=train_images.path),
-      labels=IDX(path=train_labels.path)
+      images=IDX(path=train_images),
+      labels=IDX(path=train_labels)
     ),
     "test": ImageClassification(
-      images=IDX(path=test_images.path),
-      labels=IDX(path=test_labels.path)
+      images=IDX(path=test_images),
+      labels=IDX(path=test_labels)
     ),
   }
