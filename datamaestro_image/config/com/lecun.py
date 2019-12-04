@@ -1,15 +1,15 @@
 from datamaestro_image.data import ImageClassification, Generic
-from datamaestro.data import Data
+from datamaestro.data.ml import Supervised
 from datamaestro.data.tensor import IDX
 
 from datamaestro.download.single import FileDownloader
 from datamaestro.definitions import Data, Argument, Type, DataTasks, DataTags, Dataset
 
 
-@FileDownloader("train_images", "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz")
-@FileDownloader("train_labels", "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz")
-@FileDownloader("test_images", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
-@FileDownloader("test_labels", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
+@FileDownloader("train_images.idx", "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz")
+@FileDownloader("train_labels.idx", "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz")
+@FileDownloader("test_images.idx", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
+@FileDownloader("test_labels.idx", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
 @Dataset(
   Generic,
   url="http://yann.lecun.com/exdb/mnist/",
