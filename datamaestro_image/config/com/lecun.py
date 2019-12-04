@@ -1,5 +1,4 @@
-from datamaestro_image.data import ImageClassification, Generic
-from datamaestro.data.ml import Supervised
+from datamaestro_image.data import ImageClassification, LabelledImages, Generic
 from datamaestro.data.tensor import IDX
 
 from datamaestro.download.single import FileDownloader
@@ -11,7 +10,7 @@ from datamaestro.definitions import Data, Argument, Type, DataTasks, DataTags, D
 @FileDownloader("test_images.idx", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz")
 @FileDownloader("test_labels.idx", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz")
 @Dataset(
-  Generic,
+  ImageClassification,
   url="http://yann.lecun.com/exdb/mnist/",
 )
 def MNIST(train_images, train_labels, test_images, test_labels):
@@ -23,11 +22,11 @@ def MNIST(train_images, train_labels, test_images, test_labels):
   size-normalized and centered in a fixed-size image. 
   """
   return {
-    "train": ImageClassification(
+    "train": LabelledImages(
       images=IDX(path=train_images),
       labels=IDX(path=train_labels)
     ),
-    "test": ImageClassification(
+    "test": LabelledImages(
       images=IDX(path=test_images),
       labels=IDX(path=test_labels)
     ),

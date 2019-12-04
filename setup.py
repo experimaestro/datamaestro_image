@@ -2,12 +2,15 @@ import sys
 try:
     from setuptools import setup, find_namespace_packages
 except ImportError:
-    print("Please upgrade pip: find_namesspace_packages not found")
+    print("Please upgrade pip: find_namespace_packages not found")
     sys.exit(1)
+
+# Date-based versioning
+VERSION='2019.12.04'
 
 setup(
     name='datamaestro_image',
-    version='0.1',
+    version=VERSION,
     description='Image related datasets',
     author='Benjamin Piwowarski',
     author_email='benjamin@piwowarski.fr',
@@ -16,7 +19,7 @@ setup(
     python_requires='>=3.5',
     packages=find_namespace_packages(include="datamaestro_image.*"),
     install_requires=[
-        'datamaestro'
+        'datamaestro>=0.5.1'
     ],
     classifiers=[
         'Intended Audience :: Developers',
