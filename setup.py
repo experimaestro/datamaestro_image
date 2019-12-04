@@ -1,12 +1,36 @@
+import os
+from pathlib import Path
+import re
 import sys
 try:
     from setuptools import setup, find_namespace_packages
 except ImportError:
     print("Please upgrade pip: find_namespace_packages not found")
     sys.exit(1)
+from setuptools.command.install import install
 
 # Date-based versioning
-VERSION='2019.12.04'
+VERSION='2019.12.4'
+
+RE_BLANCK=re.compile(r"^\s*(#.*)?$")
+with (Path(__file__).parent / 'requirements.txt').open() as f:
+    requirements = [x for x in f.read().splitlines() if not RE_BLANCK.match(x)]
+
+class VerifyVersionCommand(install):
+    """Custom command to verify that the git tag matches our version"""
+    description = 'verify that the git tag matches our version'
+
+    def run(self):
+        tag = os.getenv('CIRCLE_TAG')
+
+        if tag != VERSION:
+            info = "Git tag: {0} does not match the version of this app: {1}".format(
+                tag, VERSION
+            )
+            sys.exit(info)
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
     name='datamaestro_image',
@@ -18,9 +42,10 @@ setup(
     license='MIT',
     python_requires='>=3.5',
     packages=find_namespace_packages(include="datamaestro_image.*"),
-    install_requires=[
-        'datamaestro>=0.5.1'
-    ],
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+
+    install_requires=requirements,
     classifiers=[
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
@@ -33,10 +58,12 @@ setup(
     ],
     entry_points={
         'datamaestro.repositories': [
-            'image = datamaestro_image:Repository'
+            'text = datamaestro_image:Repository'
         ]
-
+    },
+    cmdclass={
+        'verify': VerifyVersionCommand,
     },
 
-    test_suite = 'datamaestro_image.test'
+    test_suite='datamaestro_image.test'
 )
