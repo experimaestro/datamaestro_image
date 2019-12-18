@@ -1,24 +1,28 @@
-from datamaestro.data import Generic
+from datamaestro.data import Generic, Base
 from datamaestro.data.ml import Supervised
-from datamaestro.definitions import Data, Argument, Type, DataTasks, DataTags, Dataset
+from datamaestro.definitions import data, argument, datatasks, datatags, dataset
+from datamaestro.data.tensor import IDX
 
-@Data()
-class Image(Generic): pass
+@data()
+class Image(Base): pass
 
-@DataTasks("image classification")
-@DataTags("images")
-@Data()
+@data()
+class IDXImage(IDX, Image): pass
+
+@datatasks("image classification")
+@datatags("images")
+@data()
 class ImageClassification(Supervised):
   """Image classification dataset"""
   pass
 
 
-@Argument("images", Image)
-@Argument("labels", Generic)
-@DataTasks("image classification")
-@DataTags("images")
-@Data()
-class LabelledImages:
+@argument("images", Image)
+@argument("labels", Base)
+@datatasks("image classification")
+@datatags("images")
+@data()
+class LabelledImages(Base):
   """Image classification dataset"""
   pass
 
