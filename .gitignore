@@ -2,3 +2,6 @@
 .vscode
 __pycache__
 site
+dist
+test-reports/
+.tox/

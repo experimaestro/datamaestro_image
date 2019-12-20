@@ -1,4 +1,4 @@
-from datamaestro.data import Generic, Base
+from datamaestro.data import Base, Base
 from datamaestro.data.ml import Supervised
 from datamaestro.definitions import data, argument, datatasks, datatags, dataset
 from datamaestro.data.tensor import IDX
