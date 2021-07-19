@@ -1,6 +1,4 @@
-# See documentation on http://experimaestro.github.io/datamaestro/
-
-from datamaestro.definitions import datatasks, datatags, dataset
+from datamaestro.definitions import datatags, dataset
 from datamaestro.data import Base
 
 

@@ -1,4 +1,4 @@
-from datamaestro_image.data import ImageClassification, LabelledImages, Base, IDXImage
+from datamaestro_image.data import ImageClassification, LabelledImages, IDXImage
 from datamaestro.download.single import filedownloader
 from datamaestro.definitions import dataset
 from datamaestro.data.tensor import IDX
