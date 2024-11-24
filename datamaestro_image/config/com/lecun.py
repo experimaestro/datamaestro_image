@@ -5,16 +5,16 @@ from datamaestro.data.tensor import IDX
 
 
 @filedownloader(
-    "train_images.idx", "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz"
+    "train_images.idx", "https://ossci-datasets.s3.amazonaws.com/mnist/train-images-idx3-ubyte.gz"
 )
 @filedownloader(
-    "train_labels.idx", "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz"
+    "train_labels.idx", "https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz"
 )
 @filedownloader(
-    "test_images.idx", "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz"
+    "test_images.idx", "https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz"
 )
 @filedownloader(
-    "test_labels.idx", "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz"
+    "test_labels.idx", "https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz"
 )
 @dataset(
     ImageClassification,
